@@ -10,6 +10,7 @@ export default function Home() {
     <div className={styles.page}>
 
       <div className={styles.titleText}> Decision Tree Wordle Solver </div>
+      
       <main className={styles.main}>
 
         <div className={styles.subTitleText}> Trained on a dataset of ~1,300 words, hosted via AWS </div>

@@ -45,6 +45,7 @@
 }
 
 .subTitleText{
+    padding-top: 20px;
     text-align: center;
     font-size: 15px;
 }
@@ -62,6 +63,7 @@
 
   .titleText{
     font-size: 20px;
+    padding-bottom: 10px;
   }
 
   .subTitleText{
