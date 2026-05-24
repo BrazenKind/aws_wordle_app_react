@@ -1,0 +1,31 @@
+.listItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 90%;
+}
+
+.listItem:hover{
+    cursor: pointer;
+    background: RGB(81, 82, 81, 0.5);
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menuWidth {
+    width: 200px;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 1fr 20px;
+}
+
+@media (max-width: 600px) {
+    .menuWidth {
+        width: 110px;
+    }
+}
