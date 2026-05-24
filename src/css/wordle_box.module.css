@@ -17,11 +17,36 @@
     border-radius: 7px;
 }
 
+.button{
+    width: 120px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
 @media (max-width: 600px) {
     .box {
         padding: 2px;
         grid-gap: 2px;
         grid-template-rows: repeat(6, 45px) 2fr 2fr
+    }
+
+    .scrollBoxRightHalf{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        width: 80px;
+        background: #7e9979;
+        border-radius: 7px;
+    }
+
+    .button{
+        width: 90px;
+        height: 30px;
+        font-weight: bold;
+        font-size: 12px;
     }
 
 }
@@ -36,5 +61,6 @@
 @keyframes l2 {
     100% {background-position: 0 0}
 }
+
 
 

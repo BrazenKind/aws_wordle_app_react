@@ -80,6 +80,7 @@ export default function Wordle_box(){
         }
     }
 
+    //style={{width: '90px', height: '30px', fontWeight:'bold'}}
 
     return(
          <div className={styles.box}>
@@ -88,9 +89,9 @@ export default function Wordle_box(){
 
                 <Word_setter secretSetter={setSecret}></Word_setter>
                 <div className={styles.scrollBoxRightHalf}>
-                    <div style={{textAlign:'center', paddingBottom:'2px'}}> Current word to guess:</div>
-                    <div style={{textAlign:'center', paddingBottom:'5px', fontWeight:'bold'}}>{secret}</div>
-                    <button disabled={isLoading} className={isLoading?styles.loader:styles.placeholder} style={{width: '90px', height: '30px', fontWeight:'bold'}}onClick={getWord}>{isLoading?'':'Guess word'}</button>
+                    <div style={{textAlign:'center', paddingBottom:'5px', fontSize:'15px'}}> Current word to guess:</div>
+                    <div style={{textAlign:'center', paddingBottom:'10px', fontSize:'20px', fontWeight:'bold', color:'yellow'}}>{secret}</div>
+                    <button disabled={isLoading} className={`${isLoading?styles.loader:styles.placeholder} ${styles.button}`} onClick={getWord}>{isLoading?'':'Guess word'}</button>
                 </div>
             </div>
 
