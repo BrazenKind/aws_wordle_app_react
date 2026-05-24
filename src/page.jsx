@@ -42,46 +42,16 @@ export default function Home() {
       
   //   }
 
-  const [wordData, setWordData] = useState([
-      'OPENS', 'FATAL', 'BLAME', 'PHPBB', 'HOWTO', 'ELLEN', 'GLASS',
-      'STACK', 'ADDED', 'SKIRT', 'QUOTE', 'EARTH', 'BRYAN', 'BELTS',
-      'YAHOO', 'TEXAS', 'BAKER', 'JONES', 'STEEL', 'DELAY', 'STRAP',
-      'CROWD', 'DEBUG', 'LAUGH', 'BUCKS', 'FANCY', 'FLOAT', 'BUDDY',
-      'OXIDE', 'TRADE', 'LOADS', 'VENUE', 'PAGES', 'TELLS', 'SIDES',
-      'DEBUT', 'THANK', 'PERTH', 'APPLY', 'UNDER', 'FAILS', 'CANAL',
-      'PLAIN', 'LEADS', 'HEART', 'PARTY', 'SAVER', 'DEVEL', 'TWICE',
-      'IVORY', 'MIXER', 'AHEAD', 'FAULT', 'PROOF', 'ENDED', 'BLEND',
-      'JOINT', 'JULIA', 'WINES', 'FEWER', 'STORM', 'FLOOR', 'HARRY',
-      'CZECH', 'OWNER', 'PANEL', 'WOUND', 'SANDY', 'PIECE', 'DROVE',
-      'FAVOR', 'SALAD', 'FOCAL', 'MALES', 'LODGE', 'SURGE', 'SWISS',
-      'SHIRT', 'ROMAN', 'TULSA', 'PASTE', 'MERGE', 'GHOST', 'DEVIL',
-      'JUDGE', 'AMEND', 'BEGUN', 'VOTED', 'STONE', 'PARKS', 'BACON',
-      'ROUGE', 'FLASH', 'CORAL', 'RULED', 'CAKES', 'BELLE', 'CLEAR',
-      'SPELL', 'SENDS']);
+  // const [wordData, setWordData] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    setWordData([
-      'OPENS', 'FATAL', 'BLAME', 'PHPBB', 'HOWTO', 'ELLEN', 'GLASS',
-      'STACK', 'ADDED', 'SKIRT', 'QUOTE', 'EARTH', 'BRYAN', 'BELTS',
-      'YAHOO', 'TEXAS', 'BAKER', 'JONES', 'STEEL', 'DELAY', 'STRAP',
-      'CROWD', 'DEBUG', 'LAUGH', 'BUCKS', 'FANCY', 'FLOAT', 'BUDDY',
-      'OXIDE', 'TRADE', 'LOADS', 'VENUE', 'PAGES', 'TELLS', 'SIDES',
-      'DEBUT', 'THANK', 'PERTH', 'APPLY', 'UNDER', 'FAILS', 'CANAL',
-      'PLAIN', 'LEADS', 'HEART', 'PARTY', 'SAVER', 'DEVEL', 'TWICE',
-      'IVORY', 'MIXER', 'AHEAD', 'FAULT', 'PROOF', 'ENDED', 'BLEND',
-      'JOINT', 'JULIA', 'WINES', 'FEWER', 'STORM', 'FLOOR', 'HARRY',
-      'CZECH', 'OWNER', 'PANEL', 'WOUND', 'SANDY', 'PIECE', 'DROVE',
-      'FAVOR', 'SALAD', 'FOCAL', 'MALES', 'LODGE', 'SURGE', 'SWISS',
-      'SHIRT', 'ROMAN', 'TULSA', 'PASTE', 'MERGE', 'GHOST', 'DEVIL',
-      'JUDGE', 'AMEND', 'BEGUN', 'VOTED', 'STONE', 'PARKS', 'BACON',
-      'ROUGE', 'FLASH', 'CORAL', 'RULED', 'CAKES', 'BELLE', 'CLEAR',
-      'SPELL', 'SENDS'])
+  //   setWordData([...wordData, 'OPENS', 'TESTS'])
+  //   console.log(wordData)
 
-  }, []);
+  // }, []);
 
-  console.log("Word data:")
-  console.log(wordData)
+  // console.log(wordData)
 
   return (
     <div className={styles.page}>
@@ -91,7 +61,7 @@ export default function Home() {
 
         <div className={styles.subTitleText}> Trained on ~1,300 words using a decision tree model</div>
 
-        <Wordle_box wordData={wordData}></Wordle_box>
+        <Wordle_box></Wordle_box>
       </main>
     </div>
   );

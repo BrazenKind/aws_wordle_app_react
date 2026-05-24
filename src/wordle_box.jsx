@@ -10,7 +10,7 @@ import { List } from 'react-window';
 //     wrows: string[];
 // }
 
-export default function Wordle_box({wordData}){
+export default function Wordle_box(){
 
     const rows = new Array(6).fill(0);
 
@@ -25,7 +25,7 @@ export default function Wordle_box({wordData}){
     let [isLoading, setIsLoading] = useState(false);
 
     let [secret, setSecret] = useState("OPENS");
-    const url = "https://d6efzmgcn7.execute-api.us-east-2.amazonaws.com/test-1_5/";
+    const url = "https://d6efzmgcn7.execute-api.us-east-2.amazonaws.com/test-1_6/";
 
     function resetWords(){
         setWrow1({word: "", feedback: '00000'});
@@ -80,15 +80,13 @@ export default function Wordle_box({wordData}){
         }
     }
 
-    console.log("Word data:")
-    console.log(wordData)
 
     return(
          <div className={styles.box}>
             {wrows.map((_, i) => <Wordle_row key={i} data={wrows[i]}></Wordle_row>)}
             <div style={{display: 'flex', justifyContent:'space-between'}}>
 
-                <Word_setter wordData={wordData} secretSetter={setSecret}></Word_setter>
+                <Word_setter secretSetter={setSecret}></Word_setter>
                 <div className={styles.scrollBoxRightHalf}>
                     <div style={{textAlign:'center', paddingBottom:'2px'}}> Current word to guess:</div>
                     <div style={{textAlign:'center', paddingBottom:'5px', fontWeight:'bold'}}>{secret}</div>
