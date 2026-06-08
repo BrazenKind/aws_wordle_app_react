@@ -9,5 +9,8 @@ export default defineConfig({
       localsConvention:"camelCase",
       generateScopedName:"[local]_[hash:base64:2]"
     }
+  },
+  define: {
+    __API_BASE_URL__:JSON.stringify("https://d6efzmgcn7.execute-api.us-east-2.amazonaws.com/test-1_6/"),
   }
 })

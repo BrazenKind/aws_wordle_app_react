@@ -1,0 +1,19 @@
+.notif_box{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+
+    border: 1px solid white;
+    width: 400px;
+    height: 50%;
+    
+}
+
+
+@media (max-width: 600px) {
+
+    .notif_box{
+        width: 150px;
+    }
+}
+

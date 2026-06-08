@@ -12,6 +12,7 @@ export default function Word_setter({secretSetter}){
     const wordDataKey = "BrazenKindAWSWordleWords"
     const [wordEntries, setWordEntries] = useState(originalWordData.current);
     const [wordLoading, setWordLoading] = useState(true);
+    const [wordError, setWordError] = useState(false);
 
     useEffect(() => {
         
@@ -20,21 +21,23 @@ export default function Word_setter({secretSetter}){
         if (cachedWords != null){
             originalWordData.current = cachedWords.split(",");
             setWordEntries([...wordEntries, ...originalWordData.current]);
+            setWordLoading(false);
         } else {
-            fetch("https://d6efzmgcn7.execute-api.us-east-2.amazonaws.com/test-1_6/", {method: "GET"})
+            fetch(__API_BASE_URL__, {method: "GET"})
             .then(response => response.json())
             .then(json => {
-                //setWordData([...wordData, ...json['result']])
+
                 originalWordData.current = json['result']
                 console.log(originalWordData)
             }).then(() => {
                 localStorage.setItem(wordDataKey, originalWordData.current.toString())
                 setWordEntries([...wordEntries, ...originalWordData.current])
+            }).then(() => {
+                setWordLoading(false);
+            }).catch((error) => {
+                setWordError(true);
             })
         }
-
-        setWordLoading(false);
-
         
     }, []);
 
@@ -55,11 +58,14 @@ export default function Word_setter({secretSetter}){
         <div className={styles.listItem} id={index} style={style} onClick={handleClick}>{wordEntries[index]}</div>
     );
 
+    const loader = <div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div className={styles.wordLoader}></div></div>;
+    const wordList = <List rowHeight={25} rowCount = {wordEntries.length} rowProps={{}} rowComponent={row} width="100%"></List>;
+    const error = <div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div> Error retriving words. Try reloading the page once or twice.</div></div>;
+
     return(
         <div className={`${styles.menuWidth} ${styles.container}`}>
             <Box sx={{ height: {sm: 125, xs: 135}, width: {sm: 190, xs: 120}, }}>
-                {wordLoading? <div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><div className={styles.wordLoader}></div></div> 
-                : <List rowHeight={25} rowCount = {wordEntries.length} rowProps={{}} rowComponent={row} width="100%"></List>}   
+                {wordError? error : (wordLoading? loader: wordList)}   
             </Box>
             <input className={styles.searchBar} onChange={handleFilter} placeholder="Search for words to guess..."></input>
         </div>

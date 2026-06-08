@@ -2,13 +2,11 @@
 import styles from './css/wordle_box.module.css';
 import Wordle_row from './wordle_row.jsx';
 import Word_setter from './word_setter.jsx';
+import Notif_box from './notif_box.jsx';
 import { useState, useEffect } from 'react';
 import React from 'react';
-//import { FixedSizeList as List } from 'react-window';
 import { List } from 'react-window';
-// interface Props{
-//     wrows: string[];
-// }
+
 
 export default function Wordle_box(){
 
@@ -25,7 +23,6 @@ export default function Wordle_box(){
     let [isLoading, setIsLoading] = useState(false);
 
     let [secret, setSecret] = useState("OPENS");
-    const url = "https://d6efzmgcn7.execute-api.us-east-2.amazonaws.com/test-1_6/";
 
     function resetWords(){
         setWrow1({word: "", feedback: '00000'});
@@ -40,7 +37,7 @@ export default function Wordle_box(){
     const getWord = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch(url, {method: "POST", body: JSON.stringify({secret: secret})});
+            const response = await fetch(__API_BASE_URL__, {method: "POST", body: JSON.stringify({secret: secret})});
             console.log(JSON.stringify({secret: secret}));
             console.log(response);
             const body = await response.json();
@@ -94,7 +91,7 @@ export default function Wordle_box(){
                     <button disabled={isLoading} className={`${isLoading?styles.loader:styles.placeholder} ${styles.button}`} onClick={getWord}>{isLoading?'':'Guess word'}</button>
                 </div>
             </div>
-
+            {/* <Notif_box></Notif_box> */}
          </div>
     );
 }

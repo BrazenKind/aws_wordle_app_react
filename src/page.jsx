@@ -2,10 +2,11 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import styles from "./css/page.module.css";
 import Wordle_box from "./wordle_box.jsx";
-import Wordle_row from "./wordle_row.jsx";
 
 export default function Home() {
 
+
+  
   return (
     <div className={styles.page}>
 
